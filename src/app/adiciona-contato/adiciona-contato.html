@@ -2,13 +2,16 @@
  um novo contato com um evento de 
  clique chamando o método 'adicionar'-->
 <form>
-  
+    <div>
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" #nm>
+    </div>
+    <input type="button" value="Adicionar" 
+           (click)="adicionar(nm.value, '')">
 </form>
 
-<!-- Exibir todos os contatos cadastrados.
- Use *ngFor para pegar os objetos Contato
- da lista de contatos e gerar uma linha
- da tabela para cada contato. -->
+<!-- Exibir todos os contatos cadastrados. Use *ngFor para pegar os objetos Contato
+ da lista de contatos e gerar uma linha da tabela para cada contato. -->
 <table>
 
 </table>
