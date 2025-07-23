@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Contato } from './contato';
+import { Contato, TipoContato } from './contato';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,14 +10,28 @@ import { CommonModule } from '@angular/common';
 })
 export class AdicionaContato {
   contatos: Contato[]
+  tipos: string[]
 
   constructor() {
     this.contatos = []
+    this.tipos = Object.values(TipoContato)
   }
 
-   adicionar(nm: string, em: string) {
-     const novo = new Contato(nm)
+   adicionar(nm: string, tp: string) {
+     const novo = new Contato(nm, this.getTipo(tp))
      this.contatos.push(novo)
      console.log(this.contatos)
+   }
+   getTipo(txt: string) {
+    if (txt === TipoContato.AMIGO) {
+      return TipoContato.AMIGO
+    } else if (txt === TipoContato.FAMILIA) {
+      return TipoContato.FAMILIA
+    } else if (txt === TipoContato.IFRN) { 
+      return TipoContato.IFRN
+    } else if (txt === TipoContato.TRAB) {
+      return TipoContato.TRAB
+    }
+    return TipoContato.OUTRO
    }
 }

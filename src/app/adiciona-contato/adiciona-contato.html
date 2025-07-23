@@ -1,17 +1,21 @@
-<!-- Obter as informações e adicionar 
- um novo contato com um evento de 
+<!-- Obter as informações e adicionar um novo contato com um evento de 
  clique chamando o método 'adicionar'-->
 <form>
     <div>
         <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome" #nm>
     </div>
+      <div>
+        <label for="tipo">Tipo</label>
+        <select name="nome" id="nome" #tp>
+            <option *ngFor="let t of tipos" 
+                    [value]="t">{{t}}</option>
+        </select>
+    </div>
     <input type="button" value="Adicionar" 
-           (click)="adicionar(nm.value, '')">
+           (click)="adicionar(nm.value, tp.value)">
 </form>
-
 <!-- Exibir todos os contatos cadastrados. Use *ngFor para pegar os objetos Contato
  da lista de contatos e gerar uma linha da tabela para cada contato. -->
 <table>
-
 </table>
